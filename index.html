@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Angular Shopping Cart</title>
+      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header>
+      <h1>Angular Shopping Cart</h1>
+    </header>
+    <div id="container"ng-app="myApp"ng:controller="myCtrl">
+      <table class='table'>
+        <tr>
+          <th>Description</th>
+          <th>Quantity</th>
+          <th>Cost</th>
+          <th>Discount (%)</th>
+          <th>Total</th>
+          <th>Remove</th>
+          <th>Buying ?</th>
+        </tr>
+        <tr ng-repeat="item in invoice.items">
+          <td><input type="text"class="input-small" ng-model="item.description"placeholder="item name"></td>
+          <td><input type="text" ng-model="item.qty" ng-required class="input-mini"></td>
+          <td><input type="text" ng-model="item.cost"ng-required="input-mini"></td>
+          <td><input type="text"ng-model="item.discount"ng-required class="input-mini"></td>
+          <td>{{(item.qty * item.cost) * (1 - item.discount/100) | currency}}</td>
+          <td>
+          <a href="#"ng-click="removeItem($index)"><span class="glyphicon glyphicon-remove"aria-hidden="true"></span></a>
+          </td>
+          <td><input type="checkbox"ng-model="item.checked"></td>
+        </tr>
+        <tr>
+          <td><a id="add"href="#"class="btn btn-info btn-sm btn-block"ng-click="addItem()">Add new item</a></td>
+          <td colspan="6"></td>
+        </tr>
+        <tr class='row-total'>
+          <td colspan="4"></td>
+          <td>Total w/tax :</td>
+          <td>{{total() | currency}}</td>
+        </tr>
+      </table>
+    </div>
+
+    <footer>
+      <p>Copyright &copy; All rights reserved by AP </p>
+    </footer>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
