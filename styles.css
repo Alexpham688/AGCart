@@ -17,7 +17,7 @@ body {
 }
 #container {
   border-radius: 5px;
-  width: 1000px;
+  width: 1100px;
   height: auto;
   margin: 0 auto;
   border: 2px solid grey;
@@ -59,13 +59,23 @@ footer p{
 #add {
   box-shadow: 5px 5px 5px #333;
 }
-td:nth-child(3n+5) {
+td:nth-child(5) {
   font-size: 1.2em;
-  border: 2px solid #eee;
+  border: 1px solid #eee;
 }
-td:nth-child(3n+6){
-  border: 2px solid #eee;
+td:nth-child(6){
+  border: 1px solid #eee;
+  width:60px;
+}
+td:nth-child(7) {
+  border: 1px solid #eee;
 }
 .row-total {
   font-size: 1.2em;
+  border: 1px solid #eee;
+  width: 1000px;
+}
+.row-total td:nth-child(3) {
+  border: 1px solid #eee;
+  width: 140px;
 }
